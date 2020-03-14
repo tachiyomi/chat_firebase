@@ -1,6 +1,9 @@
 <template>
   <div id="app">
     <div class="container my-2 py-3">
+      <p>Welcome to chat room made by tachiyomi !</p>
+      <p>Please send a message !</p>
+
       <table class="form-inline">
         <tbody>
         <tr>
@@ -16,8 +19,10 @@
         </tbody>
       </table>
 
-      <div v-for="(response, key) in filteredlist" v-bind:key="key">
-        <Response :name=response.name :text=response.text></Response>
+      <div class="pl-3">
+        <div v-for="(response, key) in filteredlist" v-bind:key="key">
+          <Response :name=response.name :text=response.text></Response>
+        </div>
       </div>
     </div>
   </div>
@@ -102,6 +107,13 @@ html{
   font: 18px/120% 'Banana Slip','Avenir', Helvetica, Arial, sans-serif;
   background: #5b5656;
   color: #f5eaea;
+}
+
+p{
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  color: #7fcd91;
 }
 
 table{
