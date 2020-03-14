@@ -1,22 +1,31 @@
 <template>
   <div id="app">
-    <label>名前</label>
-    <input placeholder="User name" type="text" v-model="userName" />
+    <div class="container my-2 py-3">
+      <table class="form-inline">
+        <tbody>
+        <tr>
+          <th scope="row">Name</th>
+          <td><input class="form-control" placeholder="Input user name" type="text" v-model="userName" /></td>
+        </tr>
+        <tr>
+          <th scope="row">Text</th>
+          <td><input class="form-control" placeholder="Input message" type="text" v-model="text" /></td>
 
-    <label>メッセージ</label>
-    <input placeholder="Massage" type="text" v-model="message" />
-    <button @click="sendMessage">送信</button>
-    <ul>
-      <li v-for="(response, key) in filteredlist" v-bind:key="key">
-        {{ response.name }}
-        <span style="margin-left:100px;">{{ response.message}}</span>
-      </li>
-    </ul>
+          <td><button type="button" class="btn btn-outline-light" @click="sendMessage">Send</button></td>
+        </tr>
+        </tbody>
+      </table>
+
+      <div v-for="(response, key) in filteredlist" v-bind:key="key">
+        <Response :name=response.name :text=response.text></Response>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 import firebase from 'firebase'
+import Response from './components/Response.vue'
 
 export default {
   name: 'app',
@@ -26,8 +35,11 @@ export default {
       responses: null,
       responselist: [],
       userName: '',
-      message: ''
+      text: ''
     };
+  },
+  components: {
+    Response
   },
   created: function() {
     // Your web app's Firebase configuration
@@ -60,9 +72,10 @@ export default {
   },
   methods: {
     sendMessage: function() {
+      if(!this.userName || !this.text) return;
       this.responses.push({
         name: this.userName,
-        message: this.message,
+        text: this.text,
       })
     }
   }
@@ -70,12 +83,35 @@ export default {
 </script>
 
 <style>
+@font-face {
+	font-family: "Banana Slip";
+	src:url("Banana-Slip.otf") format("opentype");
+	font-weight: normal;
+}
+
+*{
+  margin: auto;
+}
+
+html{
+  background: #4d4646;
+  margin: auto;
+}
+
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  font: 18px/120% 'Banana Slip','Avenir', Helvetica, Arial, sans-serif;
+  background: #5b5656;
+  color: #f5eaea;
+}
+
+table{
+  background-color: #4d4646;
+  padding: 5px;
+  border: solid 1px #212529;
+}
+
+table th, table td {
+  vertical-align: middle;
+  padding: 5px;
 }
 </style>
