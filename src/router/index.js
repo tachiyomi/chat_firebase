@@ -1,9 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from '../components/Home'
-import Chatroom from '../components/Chatroom'
-import Todolist from '../components/Todolist'
-import Signin from '../components/Signin'
+import Home from '@/components/Home'
+import Chatroom from '@/components/Chatroom'
+import Todolist from '@/components/Todolist'
+import Signin from '@/components/Signin'
 
 Vue.use(Router)
 
