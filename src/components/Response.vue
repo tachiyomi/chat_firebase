@@ -2,6 +2,7 @@
     <div class="card text-white bg-dark m-2 d-table">
       <div class="card-body">
         {{ name }}：{{ text }}
+        <button v-show="UserIsLogined" type="button" class="btn btn-sm btn-outline-light" @click="remove">DELETE</button>
       </div>
     </div>
 </template>
@@ -10,7 +11,13 @@
 export default {
     props: {
       name: String,
-      text: String
+      text: String,
+      UserIsLogined: Boolean
+    },
+    methods: {
+      remove(){
+        this.$emit('remove');
+      }
     }
 }
 </script>
@@ -18,8 +25,8 @@ export default {
 <style scoped>
   .card-body{
     font-size: 20px;
-    color: #f5eaea;
-    background: #4d4646;
+    color: #FFFFFF;
+    background: #B39980;
     padding: 18px;
   }
 </style>
