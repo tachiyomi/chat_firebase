@@ -1,24 +1,37 @@
 <template>
 <div id="app">
-  <div class="container my-2">
+  <div class="container-fluid">
     <p class="m-0">Welcome to chat room made by tachiyomi !</p>
     <p class="m-0 mb-1">Please send a message !</p>
-    <table class="form-inline">
-      <tbody>
-      <tr>
-        <th scope="row">Name</th>
-        <td><input class="form-control" placeholder="Input user name" type="text" v-model="userName" /></td>
-      </tr>
-      <tr>
-        <th scope="row">Text</th>
-        <td><input class="form-control" placeholder="Input message" type="text" v-model="text" /></td>
-        <td><button type="button" class="btn btn-outline-dark" @click="sendMessage">Send</button></td>
-      </tr>
-      </tbody>
-    </table>
+
+    <div class="table-responsive mb-1">
+      <table class="form-inline">
+        <tbody>
+        <tr>
+          <th scope="row">
+            <label class="control-label">Name</label>
+          </th>
+          <td><input class="form-control" placeholder="Input user name" type="text" v-model="userName" /></td>
+          <td/>
+        </tr>
+        <tr>
+          <th scope="row">
+            <label class="control-label">Text</label>
+          </th>
+          <td>
+            <input class="form-control" placeholder="Input message" type="text" v-model="text" />
+          </td>
+          <td>
+            <button type="button" class="btn btn-outline-dark ml-2" @click="sendMessage">Send</button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+
     <div class="responses">
       <div v-for="(response, key) in filteredlist" v-bind:key="key">
-        <Response :name=response.name :text=response.text :UserIsLogined=loginUser @remove="remove(key)"/>
+        <Response :name=response.name :text=response.text :loginUser=loginUser @remove="remove(key)"/>
       </div>
     </div>
   </div>
@@ -37,7 +50,8 @@ export default {
       responses: null,
       responselist: [],
       userName: '',
-      text: ''
+      text: '',
+      loginUser: false
     };
   },
   components: {
@@ -51,6 +65,14 @@ export default {
     this.responses.on('value', function(snapshot){
       _this.responselist = snapshot.val();
     });
+
+    firebase.auth().onAuthStateChanged((user) => {
+      if (!user) {
+          this.loginUser=false
+      } else {
+          this.loginUser=true
+      }
+    });
   },
   computed:{
     filteredlist: function(){
@@ -62,7 +84,7 @@ export default {
       if(!this.userName || !this.text) return;
       this.responses.push({
         name: this.userName,
-        text: this.text,
+        text: this.text
       })
     },
     remove(key){
@@ -75,40 +97,30 @@ export default {
 <style scoped>
 #app{
   background-color: #F5F4D5;
-  display: block;
-  vertical-align: middle;
-  font-size:0;
   text-align: center;
-}
-
-.container{
-  font-size:20px;
-  display:inline-block;
+  font-size: 20px;
 }
 
 p{
-  text-align: center;
-  font-size: 24px;
   font-weight: bold;
   color: #39183D;
 }
 
 table{
   background-color: #B39980;
-  padding: 5px 100px;
+  padding: 0% 5%;
   border: solid 1px #39183D;
   border-radius: 6px;
   color: #FFFFFF;
   display:inline-block;
-  text-align: center;
 }
 
-table th, table td {
-  padding: 5px;
+table td{
+  padding: 2%;
 }
 
 .responses{
-  padding-left: 10px;
+  display:inline-block;
   font-weight: bold;
 }
 </style>

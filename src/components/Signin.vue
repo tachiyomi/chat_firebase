@@ -1,24 +1,33 @@
 <template>
   <div id="app">
-    <div class="container my-2">
-      <p class="m-0 mb-1">This is a page for the administrator(Tachiyomi) .</p>
-      <table class="signin form-inline">
-        <tbody>
-        <tr>
-          <th scope="row"><h2>Sign in</h2></th>
-        </tr>
-        <tr>
-          <th scope="row">UserName</th>
-          <td><input class="form-control" placeholder="Email" type="email" v-model="email" /></td>
-        </tr>
-        <tr>
-          <th scope="row">Password</th>
-          <td><input class="form-control" placeholder="Password" type="password" v-model="password" /></td>
+    <div class="container-fluid">
+      <p v-if="loginUser" class="m-0 mb-1">You have already been logined .</p>
+      <p v-else class="m-0 mb-1">This is a page for the administrator(Tachiyomi) .</p>
 
-          <td><button type="button" class="btn btn-outline-dark" @click="signIn">Signin</button></td>
-        </tr>
-        </tbody>
-      </table>
+      <div class="table-responsive mb-1">
+        <table class="form-inline">
+          <tbody>
+          <tr>
+            <th scope="row"><h2>Sign in</h2></th>
+          </tr>
+          <tr>
+            <th scope="row">
+              <label class="control-label">Email</label>
+            </th>
+            <td><input class="form-control" placeholder="Email" type="email" v-model="email" /></td>
+          </tr>
+          <tr>
+            <th scope="row">
+              <label class="control-label">Password</label>
+            </th>
+            <td><input class="form-control" placeholder="Password" type="password" v-model="password" /></td>
+
+            <td><button type="button" class="btn btn-outline-dark ml-2" @click="signIn">Signin</button></td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+
     </div>
   </div>
 </template>
@@ -30,12 +39,12 @@ export default {
   name: 'Signin',
   data() {
     return {
-      email: '123@gmail.com',
-      password: '123456',
+      email: '',
+      password: '',
       loginUser: false
     };
   },
-  updated: function() {
+  created: function() {
     firebase.auth().onAuthStateChanged((user) => {
       if (!user) {
           this.loginUser=false
@@ -47,8 +56,8 @@ export default {
   methods: {
     signIn: function(){
       firebase.auth().signInWithEmailAndPassword(this.email, this.password)
-        .then(user => {
-          console.log(user)
+        .then(function() {
+          alert('Welcome Tachiyomi ⸜(* ॑꒳ ॑* )⸝')
         },
         error => {
           alert(error.message)
@@ -63,17 +72,11 @@ export default {
 <style scoped>
 #app{
   background-color: #F5F4D5;
-  font-size:0;
   text-align: center;
-}
-
-.container{
-  font-size:20px;
-  display:inline-block;
+  font-size: 20px;
 }
 
 p{
-  font-size: 24px;
   font-weight: bold;
   color: #39183D;
 }
@@ -84,16 +87,14 @@ table h2{
 
 table{
   background-color: #B39980;
-  padding: 5px 100px;
+  padding: 0% 10%;
   border: solid 1px #39183D;
   border-radius: 6px;
   color: #FFFFFF;
   display:inline-block;
-  text-align: center;
 }
 
-table th, table td {
-  vertical-align: middle;
-  padding: 5px;
+table td {
+  padding: 2%;
 }
 </style>

@@ -1,13 +1,10 @@
 <template>
   <footer>
     <nav class="navbar">
-      <div class="container">
+      <div class="container-fluid">
         <a type="button" class="navbar-brand underLine" @click="$router.push('/')">Tachiyomi</a>
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a type="button" class="moveup-a" @click="moveup"><i class="fas fa-arrow-up"></i></a>
-          </li>
-        </ul>
+
+        <a type="button" class="moveup-a" @click="moveup"><i class="fas fa-arrow-up"></i></a>
       </div>
     </nav>
   </footer>
@@ -39,16 +36,17 @@ footer{
   border-bottom: solid 1px #39183D;
 }
 
-.moveup-a{
-    padding: 10px 80px;
-    margin: 0px 15px;
-    border: solid 1px #F5F4D5;
-    border-radius: 10px;
-    background-color: #E8F5CB;
+a, button{
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
 
 a:link, a:visited, a:hover, a:active {
   color: #39183D;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
 
 a.underLine {
@@ -71,5 +69,17 @@ a.underLine::after {
 }
 a.underLine:hover::after {
   width: 100%;
+}
+
+.container-fluid{
+  vertical-align: baseline;
+}
+
+.moveup-a{
+    padding: 1% 10%;
+    border: solid 1px #39183D;
+    border-radius: 10px;
+    background-color: #E8F5CB;
+    text-align: center;
 }
 </style>
