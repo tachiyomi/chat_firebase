@@ -36,6 +36,10 @@ footer{
   border-bottom: solid 1px #39183D;
 }
 
+.navbar-brand{
+  font-size: 120%;
+}
+
 a, button{
   -webkit-appearance: none;
   -moz-appearance: none;

@@ -1,8 +1,8 @@
 <template>
 <div id="app">
   <div class="container-fluid">
-    <p class="m-0">Welcome to chat room made by tachiyomi !</p>
-    <p class="m-0 mb-1">Please send a message !</p>
+    <p class="m-0 py-1">Welcome to chat room made by tachiyomi!</p>
+    <p class="m-0 py-1">Please send a message!</p>
 
     <div class="table-responsive mb-1">
       <table class="form-inline">
@@ -98,7 +98,6 @@ export default {
 #app{
   background-color: #F5F4D5;
   text-align: center;
-  font-size: 20px;
 }
 
 p{
@@ -121,6 +120,5 @@ table td{
 
 .responses{
   display:inline-block;
-  font-weight: bold;
 }
 </style>

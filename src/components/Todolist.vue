@@ -22,12 +22,11 @@ export default {
 <style scoped>
 #app{
   background-color: #F5F4D5;
-  font-size:0;
   text-align: center;
 }
 
 .container{
-  font-size:20px;
+  font-size: 200%;
   display:inline-block;
 }
 </style>

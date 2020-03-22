@@ -24,7 +24,7 @@ export default {
 
 <style scoped>
 .card-body{
-  font-size: 20px;
+  font-size: 120%;
   color: #FFFFFF;
   background: #B39980;
 }

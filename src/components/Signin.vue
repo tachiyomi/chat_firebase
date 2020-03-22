@@ -1,14 +1,14 @@
 <template>
   <div id="app">
     <div class="container-fluid">
-      <p v-if="loginUser" class="m-0 mb-1">You have already been logined .</p>
-      <p v-else class="m-0 mb-1">This is a page for the administrator(Tachiyomi) .</p>
+      <p v-if="loginUser" class="m-0 my-2">You have already been logined .</p>
+      <p v-else class="m-0 py-2">This is a page for the administrator(Tachiyomi).</p>
 
       <div class="table-responsive mb-1">
         <table class="form-inline">
           <tbody>
           <tr>
-            <th scope="row"><h2>Sign in</h2></th>
+            <th scope="row"><h2>Signin</h2></th>
           </tr>
           <tr>
             <th scope="row">
@@ -73,7 +73,6 @@ export default {
 #app{
   background-color: #F5F4D5;
   text-align: center;
-  font-size: 20px;
 }
 
 p{
