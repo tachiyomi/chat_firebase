@@ -3,6 +3,7 @@
       <div class="card-body">
         {{ name }}：{{ text }}
         <button v-if="loginUser" type="button" class="btn btn-sm btn-outline-danger" @click="remove">DELETE</button>
+        <p class="dates text-muted m-0">{{timestamp}}</p>
       </div>
     </div>
 </template>
@@ -12,6 +13,7 @@ export default {
     props: {
       name: String,
       text: String,
+      timestamp: String,
       loginUser: Boolean
     },
     methods: {
@@ -24,9 +26,13 @@ export default {
 
 <style scoped>
 .card-body{
-  font-size: 120%;
+  font-size: 100%;
   color: #FFFFFF;
   background: #B39980;
+}
+
+.dates{
+  font-size: 80%;
 }
 
 .card-body button{

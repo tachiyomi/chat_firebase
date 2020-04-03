@@ -31,7 +31,7 @@
 
     <div class="responses">
       <div v-for="(response, key) in filteredlist" v-bind:key="key">
-        <Response :name=response.name :text=response.text :loginUser=loginUser @remove="remove(key)"/>
+        <Response :name=response.name :text=response.text :timestamp=response.timestamp :loginUser=loginUser @remove="remove(key)"/>
       </div>
     </div>
   </div>
@@ -40,7 +40,10 @@
 
 <script>
 import firebase from 'firebase'
+import dayjs from 'dayjs'
 import Response from './Response.vue'
+
+dayjs.locale('ja');
 
 export default {
   name: 'Chatroom',
@@ -84,7 +87,8 @@ export default {
       if(!this.userName || !this.text) return;
       this.responses.push({
         name: this.userName,
-        text: this.text
+        text: this.text,
+        timestamp: dayjs().format('YYYY-MM-DD')
       })
     },
     remove(key){
