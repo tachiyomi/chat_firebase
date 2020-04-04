@@ -1,7 +1,7 @@
 <template>
 <div id="app">
   <div class="container-fluid">
-    <p>LIST I wanna do</p>
+    <h1>やりたいことリスト</h1>
 
     <div class="todos">
       <div class="m-1" v-for="(todo, key) in filteredlist" v-bind:key="key">
@@ -92,12 +92,20 @@ export default {
 <style scoped>
 #app{
   background-color: #F5F4D5;
-  text-align: center;
+  text-align: left;
 }
 
-p{
-  font-weight: bold;
-  color: #39183D;
+h1 {
+  position: relative;
+  padding: 0.25em 0;
+  margin: 0%;
+}
+h1:after {
+  content: "";
+  display: block;
+  height: 4px;
+  background: -webkit-linear-gradient(to right, rgb(230, 90, 90), transparent);
+  background: linear-gradient(to right, rgb(230, 90, 90), transparent);
 }
 
 .isCompleted{
@@ -120,6 +128,7 @@ table td{
 }
 
 .todos{
+  margin-left: 2.5%;
   font-size: 120%;
   display:inline-block;
 }
