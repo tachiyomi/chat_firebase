@@ -1,28 +1,3 @@
-<<<<<<< HEAD
-# chat
-
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
-=======
-# chat_firebase
->>>>>>> origin/master
+This is a repository for my portforio.
+If you have any questions, please contact me( @tatiyomi_wce ).
+[Portforio Link](https://tachiyomi.github.io/tachiyomi_portforio/)
