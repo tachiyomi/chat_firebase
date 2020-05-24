@@ -27,6 +27,7 @@ html{
 	font-family: "Banana Slip";
 	src:url("./assets/fonts/Banana-Slip.otf") format("opentype");
 	font-weight: normal;
+  font-display: swap;
 }
 
 #app{

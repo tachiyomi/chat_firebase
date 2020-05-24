@@ -51,7 +51,8 @@ export default {
 
 h1 {
   position: relative;
-  padding: 0.25em 0;
+  padding: 0.75em 0;
+  margin: 0%;
 }
 h1:after {
   content: "";
