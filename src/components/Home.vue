@@ -44,6 +44,7 @@ export default {
 }
 
 .container-fluid{
+  margin-bottom: auto;
   font-size: 100%;
   display:inline-block;
 }
