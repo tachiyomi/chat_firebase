@@ -30,6 +30,6 @@ html{
 }
 
 #app{
-  font: 24px/1.2 "Banana Slip","Hiragino Kaku Gothic Pro","Osaka",Verdana,Arial,sans-serif;
+  font: 24px/1.2 "Banana Slip","Noto Sans JP","Roboto",sans-serif;
 }
 </style>
