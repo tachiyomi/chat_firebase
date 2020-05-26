@@ -5,7 +5,7 @@
     <h1>はじめに</h1>
     <div class="content">
       こんにちは。立ち読みと申します。<br>
-      C++でOpensiv3dを使用してゲームを作成していました。
+      C++でOpenSiv3Dを使用してゲームを作成していました。<br>
       過去の作品はこちらをご覧ください<a href="https://wce.jp/works/?tag=%E7%AB%8B%E3%81%A1%E8%AA%AD%E3%81%BF" target="_blank"><i class="fas fa-external-link-alt"></i></a>
     </div>
 
@@ -56,6 +56,7 @@ h1 {
 h1:after {
   content: "";
   display: block;
+  width: 40%;
   height: 4px;
   background: -webkit-linear-gradient(to right, rgb(230, 90, 90), transparent);
   background: linear-gradient(to right, rgb(230, 90, 90), transparent);

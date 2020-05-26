@@ -103,6 +103,7 @@ h1 {
 h1:after {
   content: "";
   display: block;
+  width: 40%;
   height: 4px;
   background: -webkit-linear-gradient(to right, rgb(230, 90, 90), transparent);
   background: linear-gradient(to right, rgb(230, 90, 90), transparent);
