@@ -12,7 +12,7 @@
     <h1>このサイトについて</h1>
     <div class="content">
       このサイトはJavascriptを学ぶために作成しました。
-      GitHubPagesを利用して公開しています。
+      GitHubPagesを利用して公開しています。<br>
       よくわからない公開チャットルームもあるのでぜひ書きこんでいってください。<br>
       また、サイトに関して何かございましたらご連らくください<a href="https://twitter.com/tatiyomi_wce" target="_blank">@tatiyomi_wce<i class="fas fa-external-link-alt"></i></a>
     </div>
